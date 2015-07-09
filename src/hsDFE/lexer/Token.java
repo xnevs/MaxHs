@@ -1,0 +1,42 @@
+package hsDFE.lexer;
+
+public enum Token {
+    /* module */ MODULE,
+    /* where */  WHERE,
+    /* let */    LET,
+    /* in */     IN,
+    /* = */      EQUAL,
+    /* === */    EQUAL3,
+    /* !== */    NEQUAL3,
+    /* < */      LTH,
+    /* <= */     LEQ,
+    /* > */      GTH,
+    /* >= */     GEQ,
+    /* + */      ADD,
+    /* - */      SUB,
+    /* * */      MUL,
+    /* / */      DIV,
+    /* << */     SHIFTL,
+    /* >> */     SHIFTR,
+    /* & */      AND,
+    /* ^ */      XOR,
+    /* | */      OR,
+    /* \ */      BSLASH,
+    /* :: */     DCOLON,
+    /* ; */      SCOLON,
+    /* ( */      LPARENT,
+    /* ) */      RPARENT,
+    /* [ */      LBRACKET,
+    /* ] */      RBRACKET,
+    /* { */      LBRACE,
+    /* } */      RBRACE,
+    /* , */      COMMA,
+    /* -> */     ARROW,
+    /* varid */  VARID, // variable id, starts with lowercase
+    /* conid */  CONID, // constructor id, starts with uppercase
+    /* 123 */    INT_CONST,
+    /* 1.23  */  REAL_CONST,
+    /* EOF */    EOF,
+                 IGNORE,
+                 UNKNOWN
+}

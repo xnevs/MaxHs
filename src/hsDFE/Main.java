@@ -3,6 +3,9 @@ package hsDFE;
 import java.io.*;
 
 import hsDFE.lexer.Lexer;
+import hsDFE.lexer.*;
+import hsDFE.lexer.Token;
+import hsDFE.synan.SynAn;
 
 public class Main {
 
@@ -23,7 +26,8 @@ public class Main {
 		}
 		
 		Lexer lexer = new Lexer(sourceFile);
-		SynAn synan = new SynAn(lexer);
+		
+		//SynAn synan = new SynAn(lexer);
 	}
 
 }
