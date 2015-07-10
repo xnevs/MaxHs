@@ -25,6 +25,7 @@ public class SynAn {
         checkToken(Token.MODULE);
         String modid = parseConId();
         ASExports exports = parseExports();
+        checkToken(Token.WHERE);
         ASBody body = parseBody();
 
         return new ASModule(modid, exports, body);
@@ -71,7 +72,7 @@ public class SynAn {
 
     private ASDecls parseDecls() {
         List<ASDecl> decls = new LinkedList<ASDecl>();
-
+        
         if (symbol.token == Token.VARID) { // TODO
             decls.add(parseDecl());
             parseDecls_(decls);
@@ -265,7 +266,7 @@ public class SynAn {
 
         if (symbol.token == Token.DCOLON) {
             checkToken(Token.DCOLON);
-            bitOrExp.type = parseType();
+            bitOrExp.typeDecl = parseType();
         } else {
             // void
         }
@@ -429,10 +430,13 @@ public class SynAn {
         ASAExp aExp = null;
         if (symbol.token == Token.VARID) {
             aExp = new ASVarExp(symbol.lexeme);
+            checkToken(Token.VARID);
         } else if (symbol.token == Token.INT_CONST) {
             aExp = new ASLiteralExp(ASLiteralExp.Type.INT, symbol.lexeme);
+            checkToken(Token.INT_CONST);
         } else if (symbol.token == Token.REAL_CONST) {
             aExp = new ASLiteralExp(ASLiteralExp.Type.REAL, symbol.lexeme);
+            checkToken(Token.REAL_CONST);
         } else if (symbol.token == Token.LPARENT) {
             checkToken(Token.LPARENT);
             aExp = new ASTupleExp(parseExps());

@@ -10,5 +10,5 @@ public class ASTupleType extends ASAType {
         super();
         this.elements = elements;
     }
-
+    
 }

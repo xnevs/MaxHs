@@ -3,11 +3,11 @@ package hsDFE.ast;
 
 public abstract class ASExp extends ASTree {
 
-    public ASType type;
+    public ASType typeDecl;
     
     public ASExp() {
         super();
-        type = null;
+        typeDecl = null;
     }
     
 }

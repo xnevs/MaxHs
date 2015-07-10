@@ -6,14 +6,14 @@ public class ASLiteralExp extends ASAExp {
         INT, REAL
     }
 
-    public Type type;
+    public Type   type;
 
-    public String      literal;
+    public String literal;
 
     public ASLiteralExp(Type type, String literal) {
         super();
         this.type = type;
         this.literal = literal;
     }
-    
+
 }

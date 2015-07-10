@@ -18,5 +18,6 @@ public class ASBinExp extends ASExp {
         this.exp1 = exp1;
         this.exp2 = exp2;
     }
+    
 
 }

@@ -10,4 +10,5 @@ public class ASDecls extends ASTree {
         super();
         this.decls = decls;
     }
+    
 }

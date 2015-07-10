@@ -5,6 +5,7 @@ import java.io.*;
 import hsDFE.lexer.*;
 import hsDFE.synan.SynAn;
 import hsDFE.ast.ASTree;
+import hsDFE.ast.ASTWriter;
 
 public class Main {
 
@@ -21,16 +22,12 @@ public class Main {
         }
 
         Lexer lexer = new Lexer(sourceFile);
-
-        Symbol symbol;
-        
-        while((symbol = lexer.nextSymbol()).token != Token.EOF) {
-           // if(symbol.token == null)
-                System.out.println(symbol.lexeme + " " + symbol.token);
-        }
         
         SynAn synan = new SynAn(lexer);
         ASTree ast = synan.parse();
+        
+        ASTWriter astWriter = new ASTWriter();
+        System.out.print(astWriter.write(ast));
     }
 
     private static void parseArgs(String[] args) {

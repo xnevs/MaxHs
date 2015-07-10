@@ -1,7 +1,5 @@
 package hsDFE.ast;
 
-import java.util.List;
-
 public class ASFunExp extends ASFExp {
 
     public ASFExp fun;
@@ -13,4 +11,5 @@ public class ASFunExp extends ASFExp {
         this.fun = fun;
         this.arg = arg;
     }
+    
 }
