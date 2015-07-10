@@ -2,8 +2,9 @@ package hsDFE;
 
 import java.io.*;
 
-import hsDFE.lexer.Lexer;
+import hsDFE.lexer.*;
 import hsDFE.synan.SynAn;
+import hsDFE.ast.ASTree;
 
 public class Main {
 
@@ -21,7 +22,15 @@ public class Main {
 
         Lexer lexer = new Lexer(sourceFile);
 
-        // SynAn synan = new SynAn(lexer);
+        Symbol symbol;
+        
+        while((symbol = lexer.nextSymbol()).token != Token.EOF) {
+           // if(symbol.token == null)
+                System.out.println(symbol.lexeme + " " + symbol.token);
+        }
+        
+        SynAn synan = new SynAn(lexer);
+        ASTree ast = synan.parse();
     }
 
     private static void parseArgs(String[] args) {
