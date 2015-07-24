@@ -1,0 +1,8 @@
+module Error (error) where
+{ error :: Stream Int -> Stream Int
+; error xs = map div3 xs
+    where
+      { div3 :: Double -> Double
+      ; div3 x = x / 3
+      }
+}

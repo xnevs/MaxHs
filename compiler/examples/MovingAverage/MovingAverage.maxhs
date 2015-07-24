@@ -1,0 +1,15 @@
+module MovingAverage (movingAverage) where
+{ movingAverage :: Stream Double -> Stream Double
+; movingAverage xs = let
+    { ys :: Stream Double
+    ; ys = zipWith plus (offset (0-1) xs) xs
+    ; zs :: Stream Double
+    ; zs = zipWith plus ys (offset 1 xs)
+    ; div3 :: Double -> Double
+    ; div3 x = x / 3
+    ; plus :: Double -> Double -> Double
+    ; plus x y = x + y
+    }
+    in
+      map div3 zs
+}

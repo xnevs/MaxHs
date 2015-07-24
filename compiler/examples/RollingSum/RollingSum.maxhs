@@ -1,0 +1,10 @@
+module RollingSum (rollingSum) where
+{ rollingSum :: Stream Double -> Stream Double
+; rollingSum xs = ys
+    where
+      { ys :: Stream Double
+      ; ys = zipWith plus xs (offset 1 ys)
+      ; plus :: Double -> Double -> Double
+      ; plus x y = x + y
+      }
+}
